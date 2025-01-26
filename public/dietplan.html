@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Plan Generator</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <!-- Include PapaParse library from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  <!-- Include Firebase App (the core Firebase SDK) -->
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <!-- Firebase Storage (if needed) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+</head>
+
+<body>
+  <div class="login-container">
+    <header>
+      <h1>Welcome to the Diet Plan Generator</h1>
+    </header>
+
+    <section id="user-info">
+      <h2>User Information</h2>
+
+      <!-- Form-like structure -->
+      <form id="diet-plan-form">
+        <div class="input-group">
+          <label for="age-group">Age Group:</label>
+          <select id="age-group">
+            <option value="18-30">18-30</option>
+            <option value="31-45">31-45</option>
+            <option value="46-60">46-60</option>
+            <option value="60+">60+</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="gender">Gender:</label>
+          <select id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="activity-level">Activity Level:</label>
+          <select id="activity-level">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="goal">Goal:</label>
+          <select id="goal">
+            <option value="Weight Loss">Weight Loss</option>
+            <option value="Muscle Gain">Muscle Gain</option>
+            <option value="Maintenance">Maintenance</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="diet-type">Diet Type:</label>
+          <select id="diet-type">
+            <option value="Standard">Standard</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Gluten-Free">Gluten-Free</option>
+          </select>
+        </div>
+
+        <button type="button" onclick="loadDietPlans()">Generate Diet Plan</button>
+      </form>
+    </section>
+
+    <section id="diet-plan">
+      <!-- The diet plan will be dynamically inserted here -->
+    </section>
+  </div>
+
+  <script src="scripts/dietplan.js"></script>
+</body>
+
+</html>

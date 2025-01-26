@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password</title>
+  <link rel="stylesheet" href="styles/main.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 100px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h2>Reset Password</h2>
+    <form id="resetPasswordForm">
+      <label for="email">Enter Your Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="newPassword">Enter New Password:</label>
+      <input type="password" id="newPassword" name="newPassword" required minlength="8">
+
+      <label for="confirmPassword">Confirm New Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required minlength="8">
+
+      <button type="submit">Reset Password</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('resetPasswordForm').addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent default form submission
+
+      const email = document.getElementById('email').value;
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (newPassword !== confirmPassword) {
+        alert("Passwords do not match. Please try again.");
+        return;
+      }
+
+      // Simulate password reset (you can replace this with server-side logic)
+      alert('Password for ${ email } has been reset successfully!');
+      window.location.href = "dietplan.html"; // Redirect back to login page
+    });
+  </script>
+  <!-- Firebase JS SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
+  <!-- Your JS files -->
+  <script src="scripts/firebaseConfig.js"></script>
+  <script src="scripts/forgot.js"></script> <!-- Change this to match the page, e.g., login.js -->
+
+</body>
+
+</html>

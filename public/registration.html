@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 50px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    button,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .dob-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .dob-container input {
+      width: 30%;
+    }
+
+    .bmi-container {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h2>Registration</h2>
+    <h3> <a href="login.html"> Already have an account? login</a></h3>
+    <form id="registrationForm">
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" name="phone" required maxlength="10" placeholder="Enter 10-digit phone number">
+
+      <label for="email">Gmail:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="dob">Date of Birth:</label>
+      <div class="dob-container">
+        <input type="number" id="dobDay" name="dobDay" placeholder="DD" required min="1" max="31">
+        <input type="number" id="dobMonth" name="dobMonth" placeholder="MM" required min="1" max="12">
+        <input type="number" id="dobYear" name="dobYear" placeholder="YYYY" required min="1900" max="currentYear">
+      </div>
+
+      <label for="sex">Sex:</label>
+      <select id="sex" name="sex" required>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+        <option value="prefer_not">Rather not say</option>
+      </select>
+
+      <label for="weight">Body Weight (kg):</label>
+      <input type="number" id="weight" name="weight" step="0.1" required>
+
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" name="height" required>
+
+      <label for="password">Create Password:</label>
+      <input type="password" id="password" name="password" required minlength="8">
+
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required minlength="8">
+
+      <div class="checkbox-container">
+        <input type="checkbox" id="showPassword">
+        <label for="showPassword">Show Password</label>
+      </div>
+
+      <button type="submit" id="registerButton">Register</button>
+    </form>
+  </div>
+
+  <script>
+    // Set current year for the year field
+    const currentYear = new Date().getFullYear();
+    document.getElementById('dobYear').setAttribute('max', currentYear);
+
+    // Ensure phone input accepts only numeric values
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', function () {
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+
+    // Toggle password visibility
+    document.getElementById('showPassword').addEventListener('change', function () {
+      const passwordField = document.getElementById('password');
+      const confirmPasswordField = document.getElementById('confirmPassword');
+      passwordField.type = this.checked ? 'text' : 'password';
+      confirmPasswordField.type = this.checked ? 'text' : 'password';
+    });
+
+    // Handle form submission
+    document.getElementById('registrationForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      // Check if passwords match
+      if (password !== confirmPassword) {
+        alert("Passwords do not match. Please try again.");
+        return;
+      }
+
+      alert("Registration Successful!");
+      window.location.href = "login.html";
+    });
+  </script>
+  <!-- Firebase JS SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
+  <!-- Your JS files -->
+  <script src="scripts/firebaseConfig.js"></script>
+  <script src="scripts/registration.js"></script> <!-- Change this to match the page, e.g., login.js -->
+
+</body>
+
+</html>

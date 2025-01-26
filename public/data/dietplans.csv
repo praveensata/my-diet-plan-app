@@ -1,0 +1,9 @@
+age_group,gender,activity_level,goal,diet_type,breakfast,lunch,dinner,calories
+18-30,Male,Medium,Weight Loss,Standard,Oatmeal with berries,Chicken salad,Grilled salmon with veggies,1800
+18-30,Female,Low,Muscle Gain,Vegetarian,Avocado toast with eggs,Quinoa salad,Vegetarian pasta with tofu,2200
+31-45,Male,High,Muscle Gain,Standard,Scrambled eggs with spinach,Grilled chicken with rice,Steak with sweet potatoes,2500
+31-45,Female,Medium,Maintenance,Gluten-Free,Smoothie bowl,Turkey sandwich with gluten-free bread,Grilled chicken with steamed broccoli,2000
+46-60,Male,Low,Weight Loss,Standard,Yogurt with granola,Tuna salad,Chicken with steamed vegetables,1500
+46-60,Female,Medium,Maintenance,Vegetarian,Chia pudding,Vegetable stir-fry with tofu,Stuffed peppers,1800
+60+,Male,Low,Maintenance,Standard,Boiled eggs,Chicken and avocado wrap,Soups with veggies,1500
+60+,Female,High,Weight Loss,Gluten-Free,Smoothie with protein,Salmon with quinoa,Vegetarian stir-fry,1400
